@@ -1,0 +1,5 @@
+SOURCE_IMAGE=registry.redhat.io/openshift3/jenkins-slave-base-rhel7:latest
+APPLICATION=jenkins-slave-node
+SOURCE_REPOSITORY_URL=https://github.com/jovemfelix/custom-jenkins-slave.git
+SOURCE_REPOSITORY_REF=master
+CONTEXT_DIR=node/build
