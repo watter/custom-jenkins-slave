@@ -1,9 +1,9 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: custom-jenkins-slave
+  name: jenkins-slave-node
   labels:
-    role: custom-jenkins-slave
+    role: jenkins-slave-node
 data:
   template1: |-
     <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
@@ -11,14 +11,14 @@ data:
       <name>custom-node</name>
       <instanceCap>2147483647</instanceCap>
       <idleMinutes>0</idleMinutes>
-      <label>custom-node</label>
+      <label>jenkins-slave-node</label>
       <serviceAccount>jenkins</serviceAccount>
       <nodeSelector></nodeSelector>
       <volumes/>
       <containers>
         <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
           <name>jnlp</name>
-          <image>openshift/jenkins-slave-node:v15.0</image>
+          <image>docker-registry.default.svc:5000/cicd-tools/jenkins-slave-node:v15.0</image>
           <privileged>false</privileged>
           <alwaysPullImage>true</alwaysPullImage>
           <workingDir>/tmp</workingDir>
