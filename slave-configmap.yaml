@@ -1,24 +1,24 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: jenkins-slave-node
+  name: leslie-jenkins-slave-node
   labels:
     role: jenkins-slave
 data:
   template1: |-
     <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
       <inheritFrom></inheritFrom>
-      <name>custom-node</name>
+      <name>leslie-jenkins-slave-node</name>
       <instanceCap>2147483647</instanceCap>
       <idleMinutes>0</idleMinutes>
-      <label>jenkins-slave-node</label>
+      <label>leslie-jenkins-slave-node</label>
       <serviceAccount>jenkins</serviceAccount>
       <nodeSelector></nodeSelector>
       <volumes/>
       <containers>
         <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
           <name>jnlp</name>
-          <image>docker-registry.default.svc:5000/cicd-tools/jenkins-slave-node:v15.0</image>
+          <image>docker-registry.default.svc:5000/cicd-tools/jenkins-slave-node:latest</image>
           <privileged>false</privileged>
           <alwaysPullImage>true</alwaysPullImage>
           <workingDir>/tmp</workingDir>
